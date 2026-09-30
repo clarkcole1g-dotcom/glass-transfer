@@ -12,26 +12,31 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
 
-      - uses: actions/setup-java@v5
+      - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install dependencies
+      - name: Fix icons so build never crashes
         run: |
-          npm install --legacy-peer-deps
-          npx expo --version
+          ls -l assets/
+          cp assets/icon.png assets/adaptive-icon.png || true
+          cp assets/icon.png assets/splash.png || true
+          cp assets/icon.png assets/favicon.png || true
 
-      - name: Prebuild Android project
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Prebuild Android
         run: npx expo prebuild --clean --platform android
 
       - name: Build RELEASE APK
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleRelease --info
+          ./gradlew assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
