@@ -4,11 +4,7 @@
     "slug": "glass-transfer",
     "version": "1.0.0",
     "android": {
-      "package": "com.clarkcole1g.glasstransfer",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000000"
-      }
+      "package": "com.clarkcole1g.glasstransfer"
     },
     "icon": "./assets/icon.png"
   }
