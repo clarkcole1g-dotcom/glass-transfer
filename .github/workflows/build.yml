@@ -1,5 +1,8 @@
 name: Build S25 Ultra APK - Glass Transfer
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,14 +22,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Make it a real Android project
+      - name: Prebuild Android project
         run: npx expo prebuild --clean --platform android
 
-      - name: Build RELEASE APK (not debug)
+      - name: Build RELEASE APK
         run: |
           cd android
           chmod +x gradlew
-         ./gradlew assembleRelease
+          ./gradlew assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
