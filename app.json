@@ -1,28 +1,15 @@
 {
   "expo": {
-    "name": "Glass Transfer Real",
+    "name": "Glass Transfer",
     "slug": "glass-transfer",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "platforms": [
-      "android"
-    ],
     "android": {
-      "package": "com.ogclark.glasstransfer",
+      "package": "com.clarkcole1g.glasstransfer",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#121212"
+        "backgroundColor": "#000000"
       }
     },
-    "splash": {
-      "backgroundColor": "#121212",
-      "resizeMode": "contain"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "d0af4a19-afc1-46d4-9e60-ff4740f41c11"
-      }
-    }
+    "icon": "./assets/icon.png"
   }
 }
