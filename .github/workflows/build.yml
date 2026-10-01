@@ -21,27 +21,17 @@ jobs:
 
       - name: Fix icons so build never crashes
         run: |
-          ls -l assets/ || true
           cp assets/icon.png assets/adaptive-icon.png || true
-          cp assets/icon.png assets/splash.png || true
-          cp assets/icon.png assets/favicon.png || true
 
-      - name: Fix bad package version that crashes at 25s
+      - name: Fix bad package version that crashed at 25s
         run: |
           sed -i 's/16.0.9/16.0.5/g' package.json || true
-          cat package.json
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
       - name: Prebuild Android
         run: npx expo prebuild --clean --platform android
-
-      - name: Fix splashscreen background missing that crashes at 3m34s
-        run: |
-          mkdir -p android/app/src/main/res/values
-          echo '<?xml version="1.0" encoding="utf-8"?><resources><color name="splashscreen_background">#000000</color></resources>' > android/app/src/main/res/values/splash_fix.xml
-          cat android/app/src/main/res/values/splash_fix.xml
 
       - name: Build RELEASE APK
         run: |
