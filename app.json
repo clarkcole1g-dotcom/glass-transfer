@@ -6,6 +6,11 @@
     "android": {
       "package": "com.clarkcole1g.glasstransfer"
     },
-    "icon": "./assets/icon.png"
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/icon.png",
+      "backgroundColor": "#000000",
+      "resizeMode": "contain"
+    }
   }
 }
